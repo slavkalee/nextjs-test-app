@@ -1,1 +1,2 @@
 export const USERS_RECEIVED = 'USERS_RECEIVED';
+export const POSTS_RECEIVED = 'POSTS_RECEIVED';

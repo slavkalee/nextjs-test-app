@@ -6,13 +6,13 @@ body {
 }
 
 main {
-  margin: 0px 376px 0 280px;
+  margin: 0px 0px 0 280px;
   padding: 60px 95px;
   background: #f8f8fa;
   min-height: calc(100vh - 120px);
 }
 
-h1 {
+h1, p {
   margin: 0;
 }
 
@@ -28,4 +28,6 @@ ul {
 
 button {
   cursor: pointer;
+  outline: 0;
 }
+

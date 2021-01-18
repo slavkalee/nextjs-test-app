@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Head from 'next/head';
-import AsideLeft from './AsideLeft';
+import AsideLeft from './Navbar';
 
 export function MainLayout({ children, title }) {
   return (

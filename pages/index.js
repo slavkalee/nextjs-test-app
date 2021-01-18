@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchUsers } from '../redux/actions/users';
-import { MainLayout } from './components/Layout/MainLayout';
-import UserInfo from './components/UserInfo';
-import Users from './components/Users';
+import { MainLayout } from '../components/layout/MainLayout';
+import UserInfo from '../components/users/UserInfo';
+import AsideRight from '../components/layout/AsideRight';
+import Users from '../components/users/Users';
 
 export default function Index({ users }) {
   const dispatch = useDispatch();
@@ -16,7 +17,9 @@ export default function Index({ users }) {
   return (
     <MainLayout title={'Пользователи'}>
       <Users onNameClick={setUserId} />
-      <UserInfo id={selectedUserId} />
+      <AsideRight>
+        <UserInfo id={selectedUserId} />
+      </AsideRight>
     </MainLayout>
   );
 }
