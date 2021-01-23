@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Head from 'next/head';
 import AsideLeft from './Navbar';
 
@@ -13,7 +12,7 @@ export function MainLayout({ children, title }) {
       </Head>
       <AsideLeft />
       <main>
-        <h1 style={{ marginBottom: '30px'}}>{title}</h1>
+        <h1 className='title'>{title}</h1>
         {children}
       </main>
     </>

@@ -1,12 +1,12 @@
 import Link from 'next/link';
-import React from 'react';
 import { useRouter } from 'next/router';
 
-function NavbarLink({ children, href }) {
+export default function NavbarLink({ children, href, exact = false }) {
   const router = useRouter();
 
+  const cond = exact ? router.pathname === href : router.pathname.indexOf(href) > -1;
   const className =
-    router.pathname === href ? 'left__nav_item active' : 'left__nav_item';
+    cond ? 'left__nav_item active' : 'left__nav_item';
 
   return (
     <Link href={href}>
@@ -16,5 +16,3 @@ function NavbarLink({ children, href }) {
     </Link>
   );
 }
-
-export default NavbarLink;

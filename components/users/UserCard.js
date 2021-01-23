@@ -1,13 +1,15 @@
 import React, { memo } from 'react';
-import Router from 'next/router'
+import { useRouter } from 'next/router'
 
 export default memo(function UserCard({ id, name, city, onNameClick }) {
+  const router = useRouter();
+
   const handleNameClick = () => {
     onNameClick(id);
   };
 
   const linkClickHandler = () => {
-    Router.push(`/posts`)
+    router.push(`/posts/${id}`)
   }
 
   return (

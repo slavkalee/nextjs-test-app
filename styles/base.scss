@@ -2,13 +2,12 @@ body {
   font-family: 'Whitney';
   padding: 0;
   margin: 0;
-  // overflow: hidden;
+  background: #f8f8fa;
 }
 
 main {
-  margin: 0px 0px 0 280px;
+  margin: 0px 377px 0 280px;
   padding: 60px 95px;
-  background: #f8f8fa;
   min-height: calc(100vh - 120px);
 }
 
@@ -29,5 +28,21 @@ ul {
 button {
   cursor: pointer;
   outline: 0;
+  border: none;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  height: 564px;
+}
+
+::-webkit-scrollbar-track {
+  margin: 10px;
+  border-radius: 10px;
+  background: #f0f0f2;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #dedee0; 
+  border-radius: 10px;
+}
