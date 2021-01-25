@@ -6,15 +6,15 @@ export default function RandomPosts() {
   const posts = useSelector(getAllPosts());
 
   return (
-      <ul className="posts">
-        {posts.map((post) => (
-          <PostCard
-            key={`post_card_${post.id}`}
-            title={post.title}
-            text={post.body}
-            postId={post.id}
-          />
-        ))}
-      </ul>
+    <ul className="posts">
+      {posts.map((post) => (
+        <PostCard
+          key={`post_card_${post.id}`}
+          title={post.title}
+          text={post.body}
+          postId={post.id}
+        />
+      ))}
+    </ul>
   );
 }

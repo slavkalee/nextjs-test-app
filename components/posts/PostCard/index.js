@@ -20,15 +20,13 @@ export default memo(function PostCard({ title, text, postId }) {
     const comments = await response.json();
     setComments(comments);
   }
-  console.log(styles);
+
   const toggleClick = () => setShow(!isShow);
 
   return (
     <Transition in={isShow} timeout={500}>
       {(state) => (
-        <li
-          className={classNames(styles.post, styles[state])}
-        >
+        <li className={classNames(styles.post, styles[state])}>
           <h1 className={styles.post__title}>{title}</h1>
           <p className={styles.post__text}>{text}</p>
           <div className={styles.post__btnContainer}>

@@ -1,6 +1,6 @@
 import NavbarLink from '../NavbarLink';
 
-import styles from './Navbar.module.scss'
+import styles from './Navbar.module.scss';
 
 export default function Navbar() {
   return (
@@ -9,9 +9,7 @@ export default function Navbar() {
         <NavbarLink href={'/'} exact>
           Пользователи
         </NavbarLink>
-        <NavbarLink href={'/posts'}>
-          Посты
-        </NavbarLink>
+        <NavbarLink href={'/posts'}>Посты</NavbarLink>
       </ul>
     </nav>
   );

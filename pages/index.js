@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+
 import { fetchUsers } from '../redux/actions/users';
 import { MainLayout } from '../components/layout/MainLayout';
 import UserInfo from '../components/users/UserInfo';

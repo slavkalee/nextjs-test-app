@@ -13,7 +13,11 @@ export default function NavbarLink({ children, href, exact = false }) {
 
   return (
     <Link href={href}>
-      <li className={classNames(styles.navbar__link, { [styles.navbar__link_active]: cond })}>
+      <li
+        className={classNames(styles.navbar__link, {
+          [styles.navbar__link_active]: cond,
+        })}
+      >
         <a>{children}</a>
       </li>
     </Link>
