@@ -1,0 +1,65 @@
+.info {
+  &__head {
+    border-bottom: 1px solid #eceaf2;
+    padding: 20px 27px;
+    &_name {
+      font-weight: 600;
+      font-size: 18px;
+      color: #2e2d35;
+    }
+    &_mail {
+      font-weight: 325;
+      font-size: 13px;
+      color: #918d9a;
+    }
+  }
+  &__body {
+    padding: 20px 27px;
+    &_item {
+      display: flex;
+      margin-bottom: 10px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &_icon {
+      width: 18px;
+      height: 18px;
+      margin-right: 10px;
+      & path {
+        fill: #f25b24;
+        fill-opacity: 1;
+      }
+    }
+    &_title {
+      font-size: 15px;
+      font-weight: 325;
+      min-width: 70px;
+      color: #918d9a;
+    }
+    &_content {
+      font-size: 15px;
+      font-weight: 600;
+      margin-left: 15px;
+      color: #2e2d35;
+    }
+  }
+  &__btnContainer {
+    padding: 20px 27px;
+  }
+  &__btn {
+    background: #f25b24;
+    border-radius: 4px;
+    padding: 13px 30px;
+    display: flex;
+    &_icon {
+      margin-right: 10px;
+    }
+    &_text {
+      font-weight: 600;
+      font-size: 14px;
+      color: #fff;
+      letter-spacing: 0.5px;
+    }
+  }
+}

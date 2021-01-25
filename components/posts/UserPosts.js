@@ -5,9 +5,7 @@ import PostCard from './PostCard'
 export default function UserPosts() {
   const userPosts = useSelector(getUserAllPosts());
   return (
-    <div>
-      <div className="posts">
-      <ul className="posts__list">
+      <ul className="posts">
         {userPosts.map((post) => (
           <PostCard
             key={`post_card_${post.id}`}
@@ -17,7 +15,5 @@ export default function UserPosts() {
           />
         ))}
       </ul>
-    </div>
-    </div>
   )
 }

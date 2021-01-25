@@ -2,13 +2,12 @@ import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 
-import { getUser } from '../../redux/selectors/users';
+import { getUser } from '../../../redux/selectors/users';
+import styles from './UserInfo.module.scss';
 
 export default memo(function UserInfo({ id, hideBtn }) {
   const router = useRouter();
   const user = useSelector(getUser(id));
-
-  console.log(user);
 
   if (!user) {
     return null;
@@ -19,16 +18,16 @@ export default memo(function UserInfo({ id, hideBtn }) {
   };
 
   return (
-    <>
-      <div className="user-info__head">
-        <div className="user-info__name">{user.name}</div>
-        <div className="user-info__mail">{user.email}</div>
+    <div className={styles.info}>
+      <div className={styles.info__head}>
+        <div className={styles.info__head_name}>{user.name}</div>
+        <div className={styles.info__head_mail}>{user.email}</div>
       </div>
 
-      <div className="user-info__body">
-        <div className="user-info__address info">
+      <div className={styles.info__body}>
+        <div className={styles.info__body_item}>
           <svg
-            className="info__icon"
+            className={styles.info__body_icon}
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -42,13 +41,14 @@ export default memo(function UserInfo({ id, hideBtn }) {
               fill="black"
             />
           </svg>
-
-          <div className="info__title">Адрес:</div>
-          <div className="info__content">{`${user.address.city},${user.address.street}`}</div>
+          <div className={styles.info__body_title}>Адрес:</div>
+          <div
+            className={styles.info__body_content}
+          >{`${user.address.city},${user.address.street}`}</div>
         </div>
-        <div className="user-info__company info">
+        <div className={styles.info__body_item}>
           <svg
-            className="info__icon"
+            className={styles.info__body_icon}
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -63,12 +63,12 @@ export default memo(function UserInfo({ id, hideBtn }) {
               fillOpacity="0.54"
             />
           </svg>
-          <div className="info__title">Компания:</div>
-          <div className="info__content">{user.company.name}</div>
+          <div className={styles.info__body_title}>Компания:</div>
+          <div className={styles.info__body_content}>{user.company.name}</div>
         </div>
-        <div className="user-info__phone info">
+        <div className={styles.info__body_item}>
           <svg
-            className="info__icon"
+            className={styles.info__body_icon}
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -83,12 +83,12 @@ export default memo(function UserInfo({ id, hideBtn }) {
               fillOpacity="0.54"
             />
           </svg>
-          <div className="info__title">Телефон:</div>
-          <div className="info__content">{user.phone}</div>
+          <div className={styles.info__body_title}>Телефон:</div>
+          <div className={styles.info__body_content}>{user.phone}</div>
         </div>
-        <div className="user-info__site info">
+        <div className={styles.info__body_item}>
           <svg
-            className="info__icon"
+            className={styles.info__body_icon}
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -102,18 +102,18 @@ export default memo(function UserInfo({ id, hideBtn }) {
               fill="black"
             />
           </svg>
-          <div className="info__title">Сайт:</div>
-          <div className="info__content">{user.website}</div>
+          <div className={styles.info__body_title}>Сайт:</div>
+          <div className={styles.info__body_content}>{user.website}</div>
         </div>
       </div>
 
       {hideBtn ? (
         ''
       ) : (
-        <div className="user-info__btn--container">
-          <button className="user-info__btn btn" onClick={linkClickHandler}>
+        <div className={styles.info__btnContainer}>
+          <button className={styles.info__btn} onClick={linkClickHandler}>
             <svg
-              className="btn__icon"
+              className={styles.info__btn_icon}
               width="16"
               height="16"
               viewBox="0 0 16 16"
@@ -145,10 +145,10 @@ export default memo(function UserInfo({ id, hideBtn }) {
                 strokeLinejoin="round"
               />
             </svg>
-            <div className="btn__text">Смотреть посты</div>
+            <div className={styles.info__btn_text}>Смотреть посты</div>
           </button>
         </div>
       )}
-    </>
+    </div>
   );
 });

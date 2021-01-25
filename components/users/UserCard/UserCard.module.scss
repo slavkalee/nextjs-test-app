@@ -1,0 +1,32 @@
+.user {
+  width: 570px;
+  padding: 23.5px 30px 32px;
+  background: #fff;
+  border: 1px solid;
+  margin-bottom: 30px;
+  box-shadow: 0px 4px 10px rgba(64, 40, 154, 0.05);
+  border-radius: 4px;
+  border: 1px solid #eceaf2;
+  &__name {
+    font-weight: 350;
+    font-size: 20px;
+    color: #474351;
+    cursor: pointer;
+  }
+  &__city {
+    font-weight: 325;
+    font-size: 14px;
+    color: #918d9a;
+  }
+  &__btnContainer {
+    margin-top: 19px;
+  }
+  &__btn {
+    border: 0;
+    background: transparent;
+    padding: 0;
+    font-weight: 325;
+    font-size: 16px;
+    color: #f25b24;
+  }
+}

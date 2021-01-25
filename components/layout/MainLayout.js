@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import AsideLeft from './Navbar';
 
-export function MainLayout({ children, title }) {
+export function MainLayout({ children, title, width = '' }) {
   return (
     <>
       <Head>
@@ -11,8 +11,8 @@ export function MainLayout({ children, title }) {
         <meta charSet="utf-8" />
       </Head>
       <AsideLeft />
-      <main>
-        <h1 className='title'>{title}</h1>
+      <main style={{ minWidth: width }}>
+        <h1 className="title">{title}</h1>
         {children}
       </main>
     </>

@@ -1,0 +1,15 @@
+.comment {
+  margin-bottom: 18px;
+
+  &__title {
+    font-weight: 350;
+    font-size: 16px;
+    color: #474351;
+    line-height: 21px;
+  }
+  &__text {
+    font-weight: 325;
+    font-size: 14px;
+    color: #918d9a;
+  }
+}

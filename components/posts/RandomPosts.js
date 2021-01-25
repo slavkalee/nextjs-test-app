@@ -1,13 +1,12 @@
 import { useSelector } from 'react-redux';
 import { getAllPosts } from '../../redux/selectors/posts';
-import PostCard from './PostCard';
+import PostCard from './PostCard/index';
 
 export default function RandomPosts() {
   const posts = useSelector(getAllPosts());
 
   return (
-    <div className="posts">
-      <ul className="posts__list">
+      <ul className="posts">
         {posts.map((post) => (
           <PostCard
             key={`post_card_${post.id}`}
@@ -17,6 +16,5 @@ export default function RandomPosts() {
           />
         ))}
       </ul>
-    </div>
   );
 }

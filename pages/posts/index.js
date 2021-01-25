@@ -12,7 +12,7 @@ export default function Posts({ posts }) {
   }, []);
 
   return (
-    <MainLayout title={'Посты'}>
+    <MainLayout title={'Посты'}  width='1440px'>
       <RandomPosts />
     </MainLayout>
   );

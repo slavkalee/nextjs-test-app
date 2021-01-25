@@ -1,0 +1,13 @@
+.navbar {
+  width: 280px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  border-right: 1px solid #efedf6;
+  height: 100vh;
+
+  &__list {
+    margin-top: 52px;
+  }
+}

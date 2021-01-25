@@ -1,0 +1,18 @@
+.navbar__link {
+  padding: 22px 72px;
+  cursor: pointer;
+
+  &_active {
+    background: #f8f8fa;
+
+    a {
+      color: #474351!important;
+    }
+  }
+
+  a {
+    font-weight: 350;
+    font-size: 16px;
+    color: #918d9a;
+  }
+}

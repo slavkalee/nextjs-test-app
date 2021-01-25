@@ -7,8 +7,7 @@ export default function Users({ onNameClick }) {
   const users = useSelector(getAllUsers());
 
   return (
-    <div className="users">
-      <ul className="users__list">
+      <ul className="users">
         {users.map(user => (
           <UserCard
             key={`user_card_${user.id}`}
@@ -19,6 +18,5 @@ export default function Users({ onNameClick }) {
           />
         ))}
       </ul>
-    </div>
   );
 }

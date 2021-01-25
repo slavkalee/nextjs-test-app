@@ -1,6 +1,9 @@
-import React, { memo, useEffect, useState } from 'react';
-import Comment from '../comments/Comment';
+import { memo, useEffect, useState } from 'react';
 import { Transition } from 'react-transition-group';
+
+import styles from './PostCard.module.scss';
+import Comment from '../../comments/Comment';
+import classNames from 'classnames';
 
 export default memo(function PostCard({ title, text, postId }) {
   const [comments, setComments] = useState(null);
@@ -17,23 +20,25 @@ export default memo(function PostCard({ title, text, postId }) {
     const comments = await response.json();
     setComments(comments);
   }
-
+  console.log(styles);
   const toggleClick = () => setShow(!isShow);
 
   return (
     <Transition in={isShow} timeout={500}>
       {(state) => (
-        <li className={`posts__list_card post__${state}`}>
-          <h1 className="post__title">{title}</h1>
-          <p className="post__text">{text}</p>
-          <div className="post__btn--container">
-            <button className="post__btn" onClick={toggleClick}>
+        <li
+          className={classNames(styles.post, styles[state])}
+        >
+          <h1 className={styles.post__title}>{title}</h1>
+          <p className={styles.post__text}>{text}</p>
+          <div className={styles.post__btnContainer}>
+            <button className={styles.post__btn} onClick={toggleClick}>
               {isShow ? 'Скрыть комментарии' : 'Открыть комментарии'}
             </button>
           </div>
 
           {isShow && comments && (
-            <ul className="comment--block">
+            <ul className={styles.commentBlock}>
               {comments.map((comment) => (
                 <Comment
                   key={`comment_${comment.id}`}
