@@ -2,7 +2,7 @@ import NavbarLink from '../NavbarLink';
 
 import styles from './Navbar.module.scss';
 
-export default function Navbar() {
+const Navbar: React.FC = () => {
   return (
     <nav className={styles.navbar}>
       <ul className={styles.navbar__list}>
@@ -13,4 +13,6 @@ export default function Navbar() {
       </ul>
     </nav>
   );
-}
+};
+
+export default Navbar;

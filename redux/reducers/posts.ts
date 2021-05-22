@@ -1,8 +1,21 @@
 import { POSTS_RECEIVED, USER_POSTS_RECEIVED } from '../actionTypes';
 
-const initialState = [];
+export interface Post {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
 
-function posts(state = initialState, action) {
+export interface Comment {
+  body: string;
+  email: string;
+  id: number;
+  name: string;
+  postId: number;
+}
+
+function posts(state: Post[] = [], action: any): Post[] {
   switch (action.type) {
     case POSTS_RECEIVED:
       return action.payload;

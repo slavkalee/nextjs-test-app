@@ -15,34 +15,6 @@
   }
   &__body {
     padding: 20px 27px;
-    &_item {
-      display: flex;
-      margin-bottom: 10px;
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-    &_icon {
-      width: 18px;
-      height: 18px;
-      margin-right: 10px;
-      & path {
-        fill: #f25b24;
-        fill-opacity: 1;
-      }
-    }
-    &_title {
-      font-size: 15px;
-      font-weight: 325;
-      min-width: 70px;
-      color: #918d9a;
-    }
-    &_content {
-      font-size: 15px;
-      font-weight: 600;
-      margin-left: 15px;
-      color: #2e2d35;
-    }
   }
   &__btnContainer {
     padding: 20px 27px;

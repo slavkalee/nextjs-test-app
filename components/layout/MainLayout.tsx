@@ -1,7 +1,15 @@
+import React from 'react';
 import Head from 'next/head';
+
 import AsideLeft from './Navbar';
 
-export function MainLayout({ children, title, width = '' }) {
+interface MainLayoutProps {
+  children: React.ReactNode;
+  title: string;
+  width?: string;
+}
+
+export const MainLayout: React.FC<MainLayoutProps> = ({ children, title, width = '' }) => {
   return (
     <>
       <Head>
@@ -18,3 +26,4 @@ export function MainLayout({ children, title, width = '' }) {
     </>
   );
 }
+

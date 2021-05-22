@@ -1,10 +1,14 @@
+import React from 'react';
 import { useSelector } from 'react-redux';
+
+import { RootState } from '../../redux/reducers';
+import { Post } from '../../redux/reducers/posts';
 import { getUserAllPosts } from '../../redux/selectors/posts';
 import PostCard from './PostCard';
 
-export default function UserPosts() {
-  const userPosts = useSelector(getUserAllPosts());
-  
+const UserPosts: React.FC = () => {
+  const userPosts = useSelector<RootState, Post[]>(getUserAllPosts());
+
   return (
     <ul className="posts">
       {userPosts.map((post) => (
@@ -17,4 +21,6 @@ export default function UserPosts() {
       ))}
     </ul>
   );
-}
+};
+
+export default UserPosts;

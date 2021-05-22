@@ -3,10 +3,12 @@
   cursor: pointer;
 
   &_active {
-    background: #f8f8fa;
+    padding: 22px 72px;
+    cursor: pointer;
+    background: #e6e6e7;
 
     a {
-      color: #474351!important;
+      color: #474351 !important;
     }
   }
 

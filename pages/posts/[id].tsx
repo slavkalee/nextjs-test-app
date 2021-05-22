@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { fetchUserPosts } from '../../redux/actions/posts';
@@ -7,15 +7,21 @@ import { MainLayout } from '../../components/layout/MainLayout';
 import AsideRight from '../../components/layout/AsideRight';
 import UserInfo from '../../components/users/UserInfo';
 import UserPosts from '../../components/posts/UserPosts';
+import { NextPage } from 'next';
+import { Post } from '../../redux/reducers/posts';
 
-export default function Post({ posts }) {
+interface PostPageProps {
+  posts: Post[];
+}
+
+const PostPage: NextPage<PostPageProps> = ({ posts }) => {
   const router = useRouter();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); 
 
   useEffect(() => {
     dispatch(fetchUserPosts(posts));
   }, []);
-
+  
   return (
     <MainLayout title={'Посты'}>
       <UserPosts />
@@ -26,7 +32,7 @@ export default function Post({ posts }) {
   );
 }
 
-Post.getInitialProps = async ({ query }) => {
+PostPage.getInitialProps = async ({ query }: any) => {
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/users/${query.id}/posts`
   );
@@ -34,3 +40,5 @@ Post.getInitialProps = async ({ query }) => {
 
   return { posts };
 };
+
+export default PostPage;

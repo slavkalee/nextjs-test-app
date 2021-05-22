@@ -1,0 +1,19 @@
+.row {
+  display: flex;
+  margin-bottom: 10px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &__title {
+    font-size: 15px;
+    font-weight: 325;
+    min-width: 70px;
+    color: #918d9a;
+  }
+  &__body {
+    font-size: 15px;
+    font-weight: 600;
+    margin-left: 15px;
+    color: #2e2d35;
+  }
+}

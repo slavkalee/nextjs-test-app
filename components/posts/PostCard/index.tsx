@@ -1,32 +1,44 @@
-import { memo, useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { Transition } from 'react-transition-group';
 
 import styles from './PostCard.module.scss';
-import Comment from '../../comments/Comment';
-import classNames from 'classnames';
+import CommentBlock from '../../comments/Comment';
+import { Comment } from '../../../redux/reducers/posts';
 
-export default memo(function PostCard({ title, text, postId }) {
-  const [comments, setComments] = useState(null);
-  const [isShow, setShow] = useState(false);
+interface PostCardProps {
+  title: string;
+  text: string;
+  postId: number;
+}
+
+const PostCard: React.FC<PostCardProps> = ({ title, text, postId }) => {
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [isShow, setShow] = useState<boolean>(false);
 
   useEffect(() => {
-    isShow && getComments();
+    if (isShow) {
+      getComments();
+    }
   }, [isShow]);
 
   async function getComments() {
-    const response = await fetch(
-      `https://jsonplaceholder.typicode.com/posts/${postId}/comments`
-    );
-    const comments = await response.json();
-    setComments(comments);
+    try {
+      const response = await fetch(
+        `https://jsonplaceholder.typicode.com/posts/${postId}/comments`
+      );
+      const comments = await response.json();
+      setComments(comments);
+    } catch (e) {
+      alert(e);
+    }
   }
 
   const toggleClick = () => setShow(!isShow);
 
   return (
     <Transition in={isShow} timeout={500}>
-      {(state) => (
-        <li className={classNames(styles.post, styles[state])}>
+      {(state: string) => (
+        <li className={[styles.post, styles[state]].join(' ')}>
           <h1 className={styles.post__title}>{title}</h1>
           <p className={styles.post__text}>{text}</p>
           <div className={styles.post__btnContainer}>
@@ -38,7 +50,7 @@ export default memo(function PostCard({ title, text, postId }) {
           {isShow && comments && (
             <ul className={styles.commentBlock}>
               {comments.map((comment) => (
-                <Comment
+                <CommentBlock
                   key={`comment_${comment.id}`}
                   title={comment.name}
                   text={comment.body}
@@ -50,4 +62,8 @@ export default memo(function PostCard({ title, text, postId }) {
       )}
     </Transition>
   );
-});
+};
+
+const memoizedPostCard = memo(PostCard);
+
+export default memoizedPostCard;

@@ -1,6 +1,12 @@
+import React from 'react';
 import styles from './Comment.module.scss';
 
-export default function Comment({ title, text }) {
+interface CommentProps {
+  title: string;
+  text: string;
+}
+
+const Comment: React.FC<CommentProps> = ({ title, text }) => {  
   return (
     <li className={styles.comment}>
       <h1 className={styles.comment__title}>{title}</h1>
@@ -8,3 +14,5 @@ export default function Comment({ title, text }) {
     </li>
   );
 }
+
+export default Comment;

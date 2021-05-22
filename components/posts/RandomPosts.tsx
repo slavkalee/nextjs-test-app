@@ -1,9 +1,13 @@
+import React from 'react';
 import { useSelector } from 'react-redux';
+
+import { RootState } from '../../redux/reducers';
+import { Post } from '../../redux/reducers/posts';
 import { getAllPosts } from '../../redux/selectors/posts';
 import PostCard from './PostCard/index';
 
-export default function RandomPosts() {
-  const posts = useSelector(getAllPosts());
+const RandomPosts: React.FC = () => {
+  const posts = useSelector<RootState, Post[]>(getAllPosts());
 
   return (
     <ul className="posts">
@@ -18,3 +22,5 @@ export default function RandomPosts() {
     </ul>
   );
 }
+
+export default RandomPosts;

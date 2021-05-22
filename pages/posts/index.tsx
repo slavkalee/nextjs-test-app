@@ -1,11 +1,17 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { NextPage } from 'next';
 
 import { fetchPosts } from '../../redux/actions/posts';
 import { MainLayout } from '../../components/layout/MainLayout';
 import RandomPosts from '../../components/posts/RandomPosts';
+import { Post } from '../../redux/reducers/posts';
 
-export default function Posts({ posts }) {
+export interface PostsProps {
+  posts: Post[];
+}
+
+const Posts: NextPage<PostsProps> = ({ posts }) =>  {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -13,7 +19,7 @@ export default function Posts({ posts }) {
   }, []);
 
   return (
-    <MainLayout title={'Посты'} width="1440px">
+    <MainLayout title={'Посты'} width="1650px">
       <RandomPosts />
     </MainLayout>
   );
@@ -27,3 +33,5 @@ Posts.getInitialProps = async () => {
 
   return { posts };
 };
+
+export default Posts;

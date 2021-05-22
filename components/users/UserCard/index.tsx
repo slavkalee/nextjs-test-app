@@ -1,18 +1,21 @@
-import { memo } from 'react';
+import React, { memo } from 'react';
 import { useRouter } from 'next/router';
 
 import styles from './UserCard.module.scss';
 
-export default memo(function UserCard({ id, name, city, onNameClick }) {
+interface UserCardProps {
+  id: number;
+  name: string;
+  city: string;
+  onNameClick: (id: number) => void;
+}
+
+const UserCard: React.FC<UserCardProps> = ({ id, name, city, onNameClick }) => {
   const router = useRouter();
 
-  const handleNameClick = () => {
-    onNameClick(id);
-  };
+  const handleNameClick = () => onNameClick(id);
 
-  const linkClickHandler = () => {
-    router.push(`/posts/${id}`);
-  };
+  const linkClickHandler = () => router.push(`/posts/${id}`);
 
   return (
     <li className={styles.user}>
@@ -27,4 +30,8 @@ export default memo(function UserCard({ id, name, city, onNameClick }) {
       </div>
     </li>
   );
-});
+};
+
+const memoizedUserCard = memo(UserCard);
+
+export default memoizedUserCard;
