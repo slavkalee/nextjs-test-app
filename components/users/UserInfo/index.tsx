@@ -9,10 +9,10 @@ import AddressIcon from '../../icons/AddressIcon';
 import CompanyIcon from '../../icons/CompanyIcon';
 import PhoneIcon from '../../icons/PhoneIcon';
 import SiteIcon from '../../icons/SiteIcon';
-import ButtonIcon from '../../icons/ButtonIcon';
+import WatchPostsIcon from '../../icons/WatchPostsIcon';
 import UserInfoRow from '../UserInfoRow/index';
 import styles from './UserInfo.module.scss';
-
+import Button from '../../button';
 
 interface UserInfoProps {
   id: any;
@@ -48,17 +48,18 @@ const UserInfo: React.FC<UserInfoProps> = ({ id, hideBtn }) => {
           title={'Компания'}
           body={user.company.name}
         />
-
         <UserInfoRow icon={<PhoneIcon />} title={'Телефон'} body={user.phone} />
         <UserInfoRow icon={<SiteIcon />} title={'Сайт'} body={user.website} />
       </div>
 
       {hideBtn ? null : (
-        <div className={styles.info__btnContainer}>
-          <button className={styles.info__btn} onClick={linkClickHandler}>
-            <ButtonIcon />
-            <div className={styles.info__btn_text}>Смотреть посты</div>
-          </button>
+        <div className={styles.box}>
+          <Button
+            type="button"
+            icon={<WatchPostsIcon />}
+            title="Смотреть посты"
+            onClick={linkClickHandler}
+          />
         </div>
       )}
     </div>

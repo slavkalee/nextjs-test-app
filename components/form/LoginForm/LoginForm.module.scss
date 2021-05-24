@@ -1,0 +1,14 @@
+.login {
+  width: 400px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.10);
+
+  &__title {
+    text-align: center;
+    margin: 0 0 20px 0;
+    color: rgb(59, 55, 55);
+    letter-spacing: 1px;
+  }
+}

@@ -1,4 +1,4 @@
-import { POSTS_RECEIVED, USER_POSTS_RECEIVED } from '../actionTypes';
+import { POSTS_RECEIVED, RESET_POSTS, USER_POSTS_RECEIVED } from '../actionTypes';
 
 export interface Post {
   userId: number;
@@ -21,6 +21,8 @@ function posts(state: Post[] = [], action: any): Post[] {
       return action.payload;
     case USER_POSTS_RECEIVED:
       return action.payload;
+    case RESET_POSTS:
+      return [];
     default:
       return state;
   }

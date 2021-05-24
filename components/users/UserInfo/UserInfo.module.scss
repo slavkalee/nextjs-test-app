@@ -16,22 +16,8 @@
   &__body {
     padding: 20px 27px;
   }
-  &__btnContainer {
-    padding: 20px 27px;
-  }
-  &__btn {
-    background: #f25b24;
-    border-radius: 4px;
-    padding: 13px 30px;
-    display: flex;
-    &_icon {
-      margin-right: 10px;
-    }
-    &_text {
-      font-weight: 600;
-      font-size: 14px;
-      color: #fff;
-      letter-spacing: 0.5px;
-    }
-  }
+}
+
+.box {
+  padding: 0px 120px 0px 20px;
 }

@@ -1,41 +1,48 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { NextPage } from 'next';
-import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
+import LoginForm, { InputValues } from '../components/form/LoginForm';
+import EmptyLayout from '../components/layout/EmptyLayout';
+import { resetUser, setUser } from '../redux/actions/user';
+import { RootState } from '../redux/reducers';
+import { resetUsers } from '../redux/actions/users';
+import { resetPosts } from '../redux/actions/posts';
+import { getLoading } from '../redux/selectors/user';
 
-import { fetchUsers } from '../redux/actions/users';
-import { MainLayout } from '../components/layout/MainLayout';
-import UserInfo from '../components/users/UserInfo';
-import AsideRight from '../components/layout/AsideRight';
-import Users from '../components/users/Users';
-import { User } from '../redux/reducers/users';
-
-interface IndexProps {
-  users: User[];
-}
-
-const Index: NextPage<IndexProps> = ({ users }) => {
+const Index: NextPage = () => {
+  const loading = useSelector<RootState, boolean>(getLoading());
   const dispatch = useDispatch();
-  const [selectedUserId, setUserId] = useState<null | number>(null);  
+  const router = useRouter();
 
   useEffect(() => {
-    dispatch(fetchUsers(users));
+    dispatch(resetUser());
+    dispatch(resetUsers());
+    dispatch(resetPosts());
   }, []);
 
+  async function login(values: InputValues) {
+    try {
+      const response = await fetch(
+        `https://api.github.com/users/${values.username}`
+      );
+      const user = await response.json();
+      if (user.message) throw new Error();
+
+      dispatch(setUser(user));
+      setTimeout(() => {
+        router.push('/users');
+      }, 3000);
+    } catch (err) {
+      alert('Такого логина не существует!');
+    }
+  }
+
   return (
-    <MainLayout title={'Пользователи'}>
-      <Users onNameClick={setUserId} />
-      <AsideRight>
-        <UserInfo id={selectedUserId} />
-      </AsideRight>
-    </MainLayout>
+    <EmptyLayout>
+      <LoginForm onSubmit={login} loading={loading} />
+    </EmptyLayout>
   );
-};
-
-Index.getInitialProps = async () => {
-  const response = await fetch('https://jsonplaceholder.typicode.com/users');
-  const users = await response.json();
-
-  return { users };
 };
 
 export default Index;

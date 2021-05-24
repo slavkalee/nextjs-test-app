@@ -1,4 +1,4 @@
-import { USERS_RECEIVED } from '../actionTypes';
+import { RESET_USERS, USERS_RECEIVED } from '../actionTypes';
 
 export interface Company {
   name: string;
@@ -34,6 +34,8 @@ function users(state: User[] = [], action: any): User[] {
   switch (action.type) {
     case USERS_RECEIVED:
       return action.payload;
+    case RESET_USERS:
+      return [];
     default:
       return state;
   }

@@ -1,4 +1,4 @@
-import { Post } from '../reducers/posts';
+import { RootState } from '../reducers';
 
-export const getAllPosts = () => (state) => state.posts;
-export const getUserAllPosts = () => (state) => state.posts;
+export const getAllPosts = () => (state: RootState) => state.posts;
+export const getUserAllPosts = () => (state: RootState) => state.posts;

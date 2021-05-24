@@ -19,7 +19,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children, title, width =
         <meta charSet="utf-8" />
       </Head>
       <AsideLeft />
-      <main style={{ minWidth: width }}>
+      <main className="main__layout" style={{ minWidth: width }}>
         <h1 className="title">{title}</h1>
         {children}
       </main>

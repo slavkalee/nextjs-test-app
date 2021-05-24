@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './index.module.scss';
 
-const ButtonIcon: React.FC = () => {
+const WatchPostsIcon: React.FC = () => {
   return (
     <svg
       className={styles.btn_icon}
@@ -39,4 +39,4 @@ const ButtonIcon: React.FC = () => {
   );
 };
 
-export default ButtonIcon;
+export default WatchPostsIcon;
