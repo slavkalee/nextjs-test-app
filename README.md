@@ -1,4 +1,4 @@
-Deploy version (https://admiring-raman-d650b5.netlify.app)
+Deploy version [https://admiring-raman-d650b5.netlify.app](https://admiring-raman-d650b5.netlify.app)
 
 ## Getting Started
 
